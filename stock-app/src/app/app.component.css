@@ -1,0 +1,36 @@
+.mat-toolbar h1{
+    font-size: 20px;
+    font-family:Arial;
+    font-weight: bolder;
+    color: white;
+}
+
+.mat-toolbar .link{
+    color:white;
+    padding-left: 20px;
+}
+.mat-toolbar {
+    background-color: #004A87;
+    display: flex;
+    align-items: center;
+}
+.spacer {
+    flex: 1 1 auto
+}
+.menu-icon {
+    display: none;
+  }
+.mat-icon {
+    color:white
+    
+}
+
+@media (max-width:768px) {
+    .menu-icon {
+        display: inline-flex;
+
+      }
+    .link {
+        display:none
+    }
+}
