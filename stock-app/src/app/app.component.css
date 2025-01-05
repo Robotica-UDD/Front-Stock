@@ -25,6 +25,10 @@
     
 }
 
+button{
+    background-color: #004A87;
+}
+
 @media (max-width:768px) {
     .menu-icon {
         display: inline-flex;

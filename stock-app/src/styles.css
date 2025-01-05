@@ -2,3 +2,16 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+button{
+    background-color: #004A87;
+    color: white;
+    border-radius: 5px;
+    border-color:#004A87;
+    border-width: 0px;
+
+}
+
+a {
+    text-decoration: none;
+}
