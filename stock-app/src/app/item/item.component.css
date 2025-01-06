@@ -1,0 +1,38 @@
+
+img{
+    width: 100%;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+}
+button{
+    font-size: 30px;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.c-mas{
+    width: 25%;
+}
+.c-menos{
+    width: 25%;
+}
+.c-cantidad{
+    width:50%
+}
+.a-mas {
+    cursor: pointer;
+}
+.a-menos {
+    cursor: pointer;
+}
+
+.itemName{
+    text-align: center;
+}
+.cantidad{
+    text-align: center;
+}
+

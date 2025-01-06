@@ -4,3 +4,30 @@
 .body{
     margin:10px;
 }
+app-item {
+    margin: 2%;
+
+}
+.filtros{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.filtro{
+    align-self: center;
+    color: #004A87;
+}
+.items {
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(256px,1fr));
+}
+.head{
+    display: flex;
+}
+.mat-icon{
+    align-self: center;
+    width: 30px;
+    height: 30px;
+    font-size:30px;
+    color: #004A87
+}
