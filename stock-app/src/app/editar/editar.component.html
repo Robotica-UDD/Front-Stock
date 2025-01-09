@@ -1,0 +1,51 @@
+<h1>Editar Item</h1>
+<div class="container">
+    
+    <form action="">
+        <div class="field-container">
+            <mat-form-field class="input">
+                <mat-label>Nombre Item</mat-label>
+                <input matInput [value]="itemName" placeholder="" type="text">
+            </mat-form-field>
+        </div>
+        <div class="field-container">
+            <mat-form-field class="input">
+                <mat-label>ID Item</mat-label>
+                <input matInput [value]="itemId" placeholder="" type="text">
+            </mat-form-field>
+        </div>
+        
+
+        <div class="checkbox">
+            <mat-checkbox [checked]="isAdd" [disabled]="isRemove">Agregar Item</mat-checkbox>
+            <mat-checkbox [checked]="isRemove" [disabled]="isAdd">Extraer Item</mat-checkbox>
+        </div>
+
+        <div class="field-container">
+            <mat-form-field class="input">
+                <mat-label>Cantidad</mat-label>
+                <input matInput [value]="quantity" placeholder="" type="number">
+            </mat-form-field>
+        </div>
+        <div class="field-container">
+            <mat-form-field class="input">
+                <mat-label>Precio Unitario</mat-label>
+                <input matInput [value]="precio" placeholder="" type="text">
+            </mat-form-field>
+        </div>
+        
+        
+        <div class="field-container">
+            <mat-form-field class="comentario">
+                <mat-label>Comentario</mat-label>
+                <textarea matInput name="" id=""></textarea>
+            </mat-form-field>
+        </div>
+
+        <button>Actualizar</button>
+        
+        
+        
+    
+    </form>
+</div>

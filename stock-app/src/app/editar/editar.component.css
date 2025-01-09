@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+
+.mat-mdc-form-field{
+   margin-right: 20px;
+   
+}
+h1{
+    text-align: center;
+}
+
+.comentario {
+    min-width: 100%;
+}
+.input {
+    min-width: 100%;
+}
+.field-container {
+    display: flex;
+    
+    
+}
+button{
+    width: 100px;
+    height: 50px;
+    font-weight: bold;
+}

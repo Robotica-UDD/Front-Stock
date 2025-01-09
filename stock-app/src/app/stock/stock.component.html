@@ -3,7 +3,7 @@
     <h1 class="title">Stock del Club</h1>
     <div class="head">
         
-    <button><h3>Agregar Item</h3></button>
+    <a [routerLink]="['editar']" [queryParams]="{ id: 0, name: '', cantidad:0, precio: '' }"><button><h3>Agregar Item</h3></button></a>
         <div class="filtros">
             <a class="filtro "href="">Filtros</a>
             <mat-icon>filter_alt</mat-icon>
@@ -11,27 +11,11 @@
     
 
     </div>
-    <div class="items">
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
+    <div class="items" >
+        <div class="item" *ngFor="let item of items">
+            <app-item [itemName]="item.itemName" [quantity]="item.quantity" [itemId]="item.id" [precio]="item.precio"></app-item>
+        </div>
+        
     </div>
     
     
