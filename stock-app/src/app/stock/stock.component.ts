@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ItemComponent } from '../item/item.component';
 import { MatIconModule } from '@angular/material/icon';
 import { NgFor } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import axios from 'axios';
 
 @Component({
   selector: 'app-stock',
@@ -10,25 +11,30 @@ import { RouterModule } from '@angular/router';
   templateUrl: './stock.component.html',
   styleUrl: './stock.component.css'
 })
-export class StockComponent {
-items =[
-  {
-    itemName:"QTR",
-    quantity:3,
-    id:1,
-    precio:3500
-  },
-  {
-    itemName:"ESP32",
-    quantity:5,
-    id:2,
-    precio:3500
-  },
-  {
-    itemName:"Rueda",
-    quantity:8,
-    id:3,
-    precio:3500
+export class StockComponent implements OnInit {
+  intervalId: any;
+  items: any = [];
+
+  ngOnInit(){
+    console.log('StockComponent initialized');
+    this.request();
   }
-]
+
+  async request(){
+    console.log('Making request to the server');
+    let config = {
+      method: 'get',
+      maxBodyLength: Infinity,
+      url: '/api',
+      headers: { }
+    };
+
+    try {
+      const response = await axios.request(config);
+      console.log('Response received:', response.data);
+      this.items = response.data;
+    } catch (error) {
+      console.error('Error making request:', error);
+    }
+  }
 }
