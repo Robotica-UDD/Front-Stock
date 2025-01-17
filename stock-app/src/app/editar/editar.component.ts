@@ -40,6 +40,13 @@ export class EditarComponent {
       }
     });
   }
+  getCsrfToken(): string {
+    const name = 'csrftoken';
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop()?.split(';').shift() || '';
+    return '';
+  }
   async submitForm() {
     console.log('Enviando solicitud al servidor');
   
@@ -59,7 +66,8 @@ export class EditarComponent {
       method: 'post',
       url: apiUrl,
       headers: { 
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'X-CSRFToken': this.getCsrfToken()
       },
       data: data
     };
@@ -73,6 +81,6 @@ export class EditarComponent {
       // Maneja errores aquí si es necesario
     }
   }
-  
+
 }
 
