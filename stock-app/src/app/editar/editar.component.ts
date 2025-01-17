@@ -47,6 +47,7 @@ export class EditarComponent {
     if (parts.length === 2) return parts.pop()?.split(';').shift() || '';
     return '';
   }
+  
   async submitForm() {
     console.log('Enviando solicitud al servidor');
   
@@ -83,4 +84,3 @@ export class EditarComponent {
   }
 
 }
-
