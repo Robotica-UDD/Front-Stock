@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {FormsModule} from '@angular/forms';
-import { MatCheckboxModule } from '@angular/material/checkbox'
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ActivatedRoute } from '@angular/router';
-import { MatFormFieldControl } from '@angular/material/form-field';
 import { HttpClient } from '@angular/common/http';
 import axios from 'axios';
-  
+
 @Component({
   selector: 'app-editar',
   imports: [FormsModule, MatFormFieldModule, MatInputModule, MatCheckboxModule],
@@ -32,7 +31,6 @@ export class EditarComponent {
       this.itemId = params['id'];
       this.action = params['action'];
       
-
       if (this.action === 'add') {
         this.isAdd = true;
       } else if (this.action === 'remove') {
@@ -40,6 +38,7 @@ export class EditarComponent {
       }
     });
   }
+
   getCsrfToken(): string {
     const name = 'csrftoken';
     const value = `; ${document.cookie}`;
@@ -47,7 +46,7 @@ export class EditarComponent {
     if (parts.length === 2) return parts.pop()?.split(';').shift() || '';
     return '';
   }
-  
+
   async submitForm() {
     console.log('Enviando solicitud al servidor');
   
@@ -63,14 +62,18 @@ export class EditarComponent {
       observacion: this.observation
     };
   
+    const csrfToken = this.getCsrfToken();
+    console.log('CSRF Token:', csrfToken);  // Verifica que el token no sea vacío
+  
     let config = {
       method: 'post',
       url: apiUrl,
       headers: { 
         'Content-Type': 'application/json',
-        'X-CSRFToken': this.getCsrfToken()
+        'X-CSRFToken': csrfToken
       },
-      data: data
+      data: data,
+      withCredentials: true  // Habilita el envío de cookies
     };
   
     try {
