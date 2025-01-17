@@ -9,24 +9,29 @@ import axios from 'axios';
   selector: 'app-stock',
   imports: [ItemComponent, MatIconModule, NgFor, RouterModule],
   templateUrl: './stock.component.html',
-  styleUrl: './stock.component.css'
+  styleUrls: ['./stock.component.css']
 })
 export class StockComponent implements OnInit {
   intervalId: any;
   items: any = [];
 
-  ngOnInit(){
+  ngOnInit() {
     console.log('StockComponent initialized');
     this.request();
   }
 
-  async request(){
+  async request() {
     console.log('Making request to the server');
+    
+    const apiUrl = (typeof window !== 'undefined' && window.location.hostname === 'stockroboticaudd.netlify.app') 
+      ? 'https://back-stock.onrender.com' // URL en Netlify
+      : '/api'; // URL en local
+
     let config = {
       method: 'get',
       maxBodyLength: Infinity,
-      url: 'https://back-stock.onrender.com/',
-      headers: { }
+      url: apiUrl, 
+      headers: {}
     };
 
     try {
