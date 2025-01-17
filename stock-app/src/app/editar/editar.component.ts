@@ -51,8 +51,8 @@ export class EditarComponent {
     console.log('Enviando solicitud al servidor');
   
     const apiUrl = (typeof window !== 'undefined' && window.location.hostname === 'stockroboticaudd.netlify.app') 
-      ? 'https://back-stock.onrender.com/item_update/' // URL en Netlify
-      : '/api/item_update'; // URL en local
+      ? 'https://back-stock.onrender.com/item_update/' 
+      : '/api/item_update';
   
     const data = {
       NombreItem: this.itemName,
@@ -62,28 +62,29 @@ export class EditarComponent {
       observacion: this.observation
     };
   
-    const csrfToken = this.getCsrfToken();
-    console.log('CSRF Token:', csrfToken);  // Verifica que el token no sea vacío
+    const csrfToken = this.getCsrfToken();  // Obtener CSRF token desde las cookies
+  
+    if (!csrfToken) {
+      console.error('El CSRF token está vacío.');
+      return;  // Si no hay CSRF token, no se realiza la solicitud
+    }
   
     let config = {
       method: 'post',
       url: apiUrl,
       headers: { 
         'Content-Type': 'application/json',
-        'X-CSRFToken': csrfToken
+        'X-CSRFToken': csrfToken,  // Agregar el CSRF token aquí
       },
-      data: data,
-      withCredentials: true  // Habilita el envío de cookies
+      data: data
     };
   
     try {
       const response = await axios.request(config);
       console.log('Respuesta recibida:', response.data);
-      // Aquí puedes manejar las respuestas, como mostrar un mensaje de éxito
     } catch (error) {
       console.error('Error al hacer el insert:', error);
-      // Maneja errores aquí si es necesario
     }
   }
-
+  
 }
