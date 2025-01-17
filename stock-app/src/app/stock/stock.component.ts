@@ -25,7 +25,7 @@ export class StockComponent implements OnInit {
     let config = {
       method: 'get',
       maxBodyLength: Infinity,
-      url: '/api',
+      url: 'https://back-stock.onrender.com/',
       headers: { }
     };
 
