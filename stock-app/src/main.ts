@@ -4,10 +4,6 @@ import { AppComponent } from './app/app.component';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { HttpXsrfInterceptor } from './app/interceptors/http-xsrf.interceptor';
 
-bootstrapApplication(AppComponent, appConfig, {
-  providers: [
-    provideHttpClient(
-      withInterceptors([HttpXsrfInterceptor]) // Agregar el interceptor
-    ),
-  ],
-}).catch((err) => console.error(err));
+bootstrapApplication(AppComponent, appConfig)
+  .catch((err) => console.error(err));
+  
