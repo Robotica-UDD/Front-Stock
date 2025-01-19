@@ -74,11 +74,7 @@ export class EditarComponent {
       withCredentials: true  // Asegúrate de que las credenciales (cookies) se envíen
     };
     const csrfToken = this.getCsrfToken();  // Obtener CSRF token desde las cookies
-  
-    if (!csrfToken) {
-      console.error('El CSRF token está vacío.');
-      return;  // Si no hay CSRF token, no se realiza la solicitud
-    }
+
   
 
   
